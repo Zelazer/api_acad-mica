@@ -16,3 +16,9 @@ class CourseResponse(BaseModel):
     name: str
     credits: int
     active: bool
+
+
+class CourseUpdate(BaseModel):
+    name: str = Field(min_length = 3, max_length = 80)
+    credits: int = Field(ge=1, le=6)
+    active: bool
