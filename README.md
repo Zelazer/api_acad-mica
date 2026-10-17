@@ -1,17 +1,18 @@
 # API Académica
 
-API educativa para crear y consultar cursos académicos con **FastAPI, SQLModel y SQLite**. El código incluye comentarios en español para estudiar cómo se conectan las rutas HTTP, la validación de datos y la persistencia.
+API educativa con CRUD de cursos y alta/consulta de estudiantes con **FastAPI, SQLModel y SQLite**. El código incluye comentarios en español para estudiar cómo se conectan las rutas HTTP, la validación de datos y la persistencia.
 
 La explicación detallada del proyecto, la práctica con Swagger y los ejercicios están en la [guía para estudiantes](docs.md).
 
 ## Funcionalidades
 
-- Crear cursos con nombre, créditos y estado activo.
-- Consultar todos los cursos o buscar uno por su identificador.
+- CRUD completo de cursos: crear, consultar, actualizar (PUT) y eliminar.
+- Crear y consultar estudiantes (nombre, correo, semestre y estado activo).
+- Consultar todos los registros o buscar uno por su identificador.
 - Validar los datos de entrada y responder con errores HTTP.
 - Conservar los registros en una base de datos SQLite local.
 
-El proyecto implementa creación y consulta. La actualización, eliminación, autenticación y paginación quedan como posibles ampliaciones.
+Autenticación, paginación, matrícula y relación estudiante-curso quedan como posibles ampliaciones.
 
 ## Tecnologías
 
@@ -72,8 +73,13 @@ La base de datos y sus tablas se crean al iniciar la aplicación. Ejecuta el com
 | `POST` | `/courses` | Crear un curso. | `201` |
 | `GET` | `/courses` | Listar todos los cursos. | `200` |
 | `GET` | `/courses/{course_id}` | Consultar un curso por ID. | `200` |
+| `PUT` | `/courses/{course_id}` | Actualizar un curso (los 3 campos obligatorios). | `200` |
+| `DELETE` | `/courses/{course_id}` | Eliminar un curso (`{"message": "Course deleted"}`). | `200` |
+| `POST` | `/students` | Crear un estudiante. | `201` |
+| `GET` | `/students` | Listar estudiantes. | `200` |
+| `GET` | `/students/{student_id}` | Consultar un estudiante por ID. | `200` |
 
-Un curso inexistente devuelve `404`. Los datos que incumplen el esquema devuelven `422`. La ruta `/` no está definida; utiliza `/docs` o `/courses`.
+Un curso o estudiante inexistente devuelve `404` (`Course not found` / `Student not found`). Los datos que incumplen el esquema devuelven `422`. La ruta `/` no está definida; utiliza `/docs` o `/courses`.
 
 ## Ejemplo de uso
 
@@ -122,10 +128,22 @@ El ID es ilustrativo: SQLite lo asigna automáticamente. Usa el valor recibido p
 fastapi_academica/
 ├── main.py                     # Aplicación y ciclo de vida
 ├── database/database.py        # Motor SQLite y sesiones
-├── models/course.py            # Modelo de la tabla de cursos
-├── schemas/course.py           # Esquemas de entrada y salida
-├── routers/courses.py          # Endpoints HTTP
-├── services/course_service.py  # Creación y consulta de registros
+├── models/
+│   ├── course.py               # Tabla de cursos
+│   └── student.py              # Tabla de estudiantes
+├── schemas/
+│   ├── course.py               # CourseCreate, CourseUpdate, CourseResponse
+│   └── student.py              # StudentCreate, StudentResponse
+├── routers/
+│   ├── courses.py              # Endpoints de cursos
+│   └── students.py             # Endpoints de estudiantes
+├── services/
+│   ├── course_service.py       # Crear, listar, consultar, actualizar, eliminar
+│   └── student_service.py      # Crear, listar, consultar
+├── entrega-pruebas/
+│   ├── informe-pruebas.md      # Informe de pruebas
+│   └── evidencias/             # Capturas de Swagger
+├── ejercicio.md                # Retos propuestos
 ├── requirements.txt            # Dependencias
 ├── docs.md                     # Guía didáctica detallada
 └── README.md                   # Presentación e inicio rápido
