@@ -1,7 +1,9 @@
 # Informe de pruebas — API Académica
 
 **Estudiante:** Juan David Herrera Gonzalez
-**Fecha:** 16/10/2026 
+
+**Fecha:** 16/10/2026
+
 **Repositorio:** https://github.com/Zelazer/api_acad-mica
 
 
@@ -17,7 +19,7 @@
 | Resultado obtenido | Curso creado correctamente con `id: 1`, `name: "Desarrollo Web II"`, `credits: 3`, `active: true`. |
 | Código HTTP obtenido | 201 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/P01.png` |
+| Evidencia | <img src="evidencias/P01.png" width="450"> |
 
 ### Caso P02
 | Campo | Información |
@@ -29,7 +31,7 @@
 | Resultado obtenido | Curso creado con `id: 2`, `name: "Redes"`, `credits: 3`. Al omitir `active`, quedó en `true` por defecto. |
 | Código HTTP obtenido | 201 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/P02.png` |
+| Evidencia | <img src="evidencias/P02.png" width="450"> |
 
 ### Caso P03
 | Campo | Información |
@@ -41,7 +43,7 @@
 | Resultado obtenido | Lista con los 2 cursos creados: id 1 (Desarrollo Web II) e id 2 (Redes). |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/P03.png` |
+| Evidencia | <img src="evidencias/P03.png" width="450"> |
 
 ### Caso P04
 | Campo | Información |
@@ -53,7 +55,7 @@
 | Resultado obtenido | Devolvió el curso con `id: 1`, `name: "Desarrollo Web II"`, `credits: 3`, `active: true`. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/P04.png` |
+| Evidencia | <img src="evidencias/P04.png" width="450"> |
 
 
 ## Reto 1 — DELETE
@@ -68,7 +70,7 @@
 | Resultado obtenido | El curso 2 se eliminó y la API respondió `{"message": "Course deleted"}`. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D01.png` |
+| Evidencia | <img src="evidencias/D01.png" width="450"> |
 
 ### Caso D02
 | Campo | Información |
@@ -80,7 +82,7 @@
 | Resultado obtenido | Al consultar el curso 2 eliminado, la API respondió `{"detail": "Course not found"}`. |
 | Código HTTP obtenido | 404 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D02.png` |
+| Evidencia | <img src="evidencias/D02.png" width="450"> |
 
 ### Caso D03
 | Campo | Información |
@@ -92,7 +94,7 @@
 | Resultado obtenido | La lista solo contiene el curso 1 (Desarrollo Web II); el curso 1 no se vio afectado por el borrado del curso 2. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D03.png` |
+| Evidencia | <img src="evidencias/D03.png" width="450"> |
 
 ### Caso D04
 | Campo | Información |
@@ -104,7 +106,7 @@
 | Resultado obtenido | Al intentar eliminar de nuevo el curso 2, la API respondió `{"detail": "Course not found"}`. |
 | Código HTTP obtenido | 404 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D04.png` |
+| Evidencia | <img src="evidencias/D04.png" width="450"> |
 
 ### Caso D05
 | Campo | Información |
@@ -116,7 +118,7 @@
 | Resultado obtenido | El servidor rechazó el ID `abc` con error de validación: "Input should be a valid integer". Se ejecutó con `curl.exe` porque Swagger UI bloquea el valor en el cliente y no envía la petición. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D05.png` |
+| Evidencia | <img src="evidencias/D05.png" width="450"> |
 
 ### Caso D06
 | Campo | Información |
@@ -128,7 +130,7 @@
 | Resultado obtenido | Tras reiniciar Uvicorn, la lista solo contiene el curso 1 (Desarrollo Web II). El curso 2 eliminado no reapareció. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/D06.png` |
+| Evidencia | <img src="evidencias/D06.png" width="450"> |
 
 
 ## Reto 2 — PUT
@@ -143,7 +145,7 @@
 | Resultado obtenido | El curso se actualizó conservando `id: 1`; ahora tiene `name: "Programación II"`, `credits: 4` y `active: false`. No se creó un curso nuevo. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U01.png` |
+| Evidencia | <img src="evidencias/U01.png" width="450"> |
 
 ### Caso U02
 | Campo | Información |
@@ -155,7 +157,7 @@
 | Resultado obtenido | La lista contiene un solo curso (`id: 1`), por lo que la cantidad de cursos no aumentó. El curso muestra `name: "Programación II"`, `credits: 4` y `active: false`. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U02.png` |
+| Evidencia | <img src="evidencias/U02.png" width="450"> |
 
 ### Caso U03
 | Campo | Información |
@@ -167,7 +169,7 @@
 | Resultado obtenido | La API rechazó `credits: 0` con error de validación: tipo `greater_than_equal`, "Input should be greater than or equal to 1". No se modificó el curso. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U03.png` |
+| Evidencia | <img src="evidencias/U03.png" width="450"> |
 
 ### Caso U04
 | Campo | Información |
@@ -179,7 +181,7 @@
 | Resultado obtenido | La API rechazó `credits: 7` con error de validación: tipo `less_than_equal`, "Input should be less than or equal to 6". No se modificó el curso. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U04.png` |
+| Evidencia | <img src="evidencias/U04.png" width="450"> |
 
 ### Caso U05
 | Campo | Información |
@@ -191,7 +193,7 @@
 | Resultado obtenido | La API rechazó el nombre "AB" con error de validación: tipo `string_too_short`, "String should have at least 3 characters". No se modificó el curso. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U05.png` |
+| Evidencia | <img src="evidencias/U05.png" width="450"> |
 
 ### Caso U06
 | Campo | Información |
@@ -203,7 +205,7 @@
 | Resultado obtenido | La API rechazó la petición sin `active` con error de validación: tipo `missing`, campo `body.active`, "Field required". Confirma que en el PUT los tres campos son obligatorios. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U06.png` |
+| Evidencia | <img src="evidencias/U06.png" width="450"> |
 
 ### Caso U07
 | Campo | Información |
@@ -215,7 +217,7 @@
 | Resultado obtenido | Al actualizar el ID inexistente 999, la API respondió `{"detail": "Course not found"}`. No se creó ningún curso. |
 | Código HTTP obtenido | 404 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U07.png` |
+| Evidencia | <img src="evidencias/U07.png" width="450"> |
 
 ### Caso U08
 | Campo | Información |
@@ -227,7 +229,7 @@
 | Resultado obtenido | Tras reiniciar Uvicorn, el curso 1 conserva los cambios del PUT: `name: "Programación II"`, `credits: 4`, `active: false`. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/U08.png` |
+| Evidencia | <img src="evidencias/U08.png" width="450"> |
 
 
 ## Reto 3 — Students
@@ -242,7 +244,7 @@
 | Resultado obtenido | Swagger `/docs` muestra la sección **Courses** (GET y POST `/courses`, GET, DELETE y PUT `/courses/{course_id}`) y la sección **Students** (GET y POST `/students`, GET `/students/{student_id}`). En *Schemas* aparecen `CourseUpdate`, `StudentCreate` y `StudentResponse`. |
 | Código HTTP obtenido | — |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S01.png` |
+| Evidencia | <img src="evidencias/S01.png" width="450"> |
 
 ### Caso S02
 | Campo | Información |
@@ -254,7 +256,7 @@
 | Resultado obtenido | Estudiante creado con `id: 1`, `name: "Ana Pérez"`, `email: "ana@universidad.edu"`, `semester: 4`. Al omitir `active`, quedó en `true` por defecto. |
 | Código HTTP obtenido | 201 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S02.png` |
+| Evidencia | <img src="evidencias/S02.png" width="450"> |
 
 ### Caso S03
 | Campo | Información |
@@ -266,7 +268,7 @@
 | Resultado obtenido | Estudiante creado con `id: 2`, `name: "Luis Gómez"`, `email: "luis@universidad.edu"`, `semester: 2` y `active: false`. |
 | Código HTTP obtenido | 201 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S03.png` |
+| Evidencia | <img src="evidencias/S03.png" width="450"> |
 
 ### Caso S04
 | Campo | Información |
@@ -278,7 +280,7 @@
 | Resultado obtenido | Lista con los 2 estudiantes creados: id 1 (Ana Pérez, `active: true`) e id 2 (Luis Gómez, `active: false`). |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S04.png` |
+| Evidencia | <img src="evidencias/S04.png" width="450"> |
 
 ### Caso S05
 | Campo | Información |
@@ -290,7 +292,7 @@
 | Resultado obtenido | Devolvió el estudiante con `id: 1`, `name: "Ana Pérez"`, `email: "ana@universidad.edu"`, `semester: 4`, `active: true`. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S05.png` |
+| Evidencia | <img src="evidencias/S05.png" width="450"> |
 
 ### Caso S06
 | Campo | Información |
@@ -302,7 +304,7 @@
 | Resultado obtenido | Al consultar el ID inexistente 999, la API respondió `{"detail": "Student not found"}`. |
 | Código HTTP obtenido | 404 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S06.png` |
+| Evidencia | <img src="evidencias/S06.png" width="450"> |
 
 ### Caso S07
 | Campo | Información |
@@ -314,7 +316,7 @@
 | Resultado obtenido | El servidor rechazó el ID `abc` con error de validación: tipo `int_parsing`, "Input should be a valid integer" (campo `path.student_id`). Se ejecutó con `curl.exe` porque Swagger UI bloquea el valor en el cliente y no envía la petición. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S07.png` |
+| Evidencia | <img src="evidencias/S07.png" width="450"> |
 
 ### Caso S08
 | Campo | Información |
@@ -326,7 +328,7 @@
 | Resultado obtenido | La API rechazó `semester: 0` con error de validación: tipo `greater_than_equal`, "Input should be greater than or equal to 1". No se creó ningún estudiante. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S08.png` |
+| Evidencia | <img src="evidencias/S08.png" width="450"> |
 
 ### Caso S09
 | Campo | Información |
@@ -338,7 +340,7 @@
 | Resultado obtenido | La API rechazó `semester: 11` con error de validación: tipo `less_than_equal`, "Input should be less than or equal to 10". No se creó ningún estudiante. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S09.png` |
+| Evidencia | <img src="evidencias/S09.png" width="450"> |
 
 ### Caso S10
 | Campo | Información |
@@ -350,7 +352,7 @@
 | Resultado obtenido | La API rechazó el nombre "An" con error de validación: tipo `string_too_short`, "String should have at least 3 characters". No se creó ningún estudiante. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S10.png` |
+| Evidencia | <img src="evidencias/S10.png" width="450"> |
 
 ### Caso S11
 | Campo | Información |
@@ -362,7 +364,7 @@
 | Resultado obtenido | La API rechazó el email vacío con error de validación: tipo `string_too_short`, "String should have at least 1 character" (campo `body.email`). No se creó ningún estudiante. |
 | Código HTTP obtenido | 422 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/S11.png` |
+| Evidencia | <img src="evidencias/S11.png" width="450"> |
 
 
 ## Persistencia
@@ -377,7 +379,7 @@
 | Resultado obtenido | Tras reiniciar Uvicorn, la lista conserva los 2 estudiantes: id 1 (Ana Pérez) e id 2 (Luis Gómez), con los mismos datos. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/R01.png` |
+| Evidencia | <img src="evidencias/R01.png" width="450"> |
 
 ### Caso R02
 | Campo | Información |
@@ -389,4 +391,4 @@
 | Resultado obtenido | Tras reiniciar Uvicorn, la lista de cursos funciona y devuelve el curso 1 (`name: "Programación II"`, `credits: 4`, `active: false`) con los cambios del PUT conservados. |
 | Código HTTP obtenido | 200 |
 | Estado | Aprobado |
-| Evidencia | `evidencias/R02.png` |
+| Evidencia | <img src="evidencias/R02.png" width="450"> |
